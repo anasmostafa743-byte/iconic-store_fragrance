@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICONIC STORE - Fine Fragrances</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#d4af37',
+                            600: '#b8860b',
+                            700: '#92400e',
+                            800: '#78350f',
+                            900: '#451a03',
+                        },
+                        darkbg: '#0B0F17',
+                        darkcard: '#151C28',
+                        darkborder: '#232D3F'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        tajawal: ['Tajawal', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', 'Tajawal', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .font-brand {
+            font-family: 'Cinzel', 'Tajawal', serif;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF099 0%, #D4AF37 50%, #AA771C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+        }
+        .gold-border-glow:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+        .glass-panel {
+            background: rgba(21, 28, 40, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .light .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+    </style>
+<base target="_blank">
+</head>
+<body class="bg-darkbg text-gray-100 min-h-screen flex flex-col transition-colors duration-300">
+
+    <!-- Top Delivery Announcement Banner -->
+    <div id="delivery-banner" class="bg-gradient-to-r from-amber-700 via-gold-500 to-amber-700 text-black font-bold py-2 px-4 text-center text-xs md:text-sm tracking-wide shadow-md flex items-center justify-center gap-2">
+        <i class="fa-solid fa-truck-fast text-base animate-bounce"></i>
+        <span id="banner-text">Flat Delivery Fee: 99 L.E in shrouk city,mostakbal and madinty | التوصيل بـ 99 ج.م فقط لكافة مدينة الشروق, مدينتي و المستقبل</span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-gold-500/20 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="flex items-center justify-between gap-2 md:gap-4">
+                
+                <!-- Circular Store Logo & Branding -->
+                <div class="flex items-center gap-3">
+                    <div class="relative group cursor-pointer" onclick="scrollToTop()">
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black border-2 border-gold-500 flex items-center justify-center p-1 gold-border-glow transition-all duration-300">
+                            <div class="w-full h-full rounded-full border border-gold-400/50 flex flex-col items-center justify-center text-center p-0.5 bg-gradient-to-b from-neutral-900 to-black overflow-hidden">
+                                <i class="fa-solid fa-crown text-gold-400 text-[10px] md:text-xs mb-0.5"></i>
+                                <span class="font-brand font-black text-[8px] md:text-[10px] text-gold-300 leading-tight uppercase">ICONIC</span>
+                                <span class="text-[6px] md:text-[7px] text-gold-500 font-semibold uppercase tracking-widest">STORE</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h1 class="font-brand font-bold text-base md:text-2xl gold-gradient-text tracking-wider">ICONIC STORE</h1>
+                        <p class="text-[9px] md:text-xs text-gold-400/80 font-medium tracking-widest uppercase" id="brand-sub">FINE FRAGRANCES</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-md mx-4">
+                    <div class="relative w-full">
+                        <input type="text" id="search-input" onkeyup="filterProducts()" placeholder="Search fragrances..." 
+                               class="w-full bg-slate-900/80 border border-gold-500/30 rounded-full py-2 px-4 pl-10 text-xs text-gray-200 focus:outline-none focus:border-gold-500">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gold-500/70 text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Controls & Cart Drawer Trigger Button -->
+                <div class="flex items-center gap-2 md:gap-3">
+                    <button onclick="toggleLanguage()" class="px-2.5 py-1.5 rounded-full border border-gold-500/40 text-xs font-semibold text-gold-400 hover:bg-gold-500/10 transition flex items-center gap-1">
+                        <i class="fa-solid fa-globe text-xs"></i>
+                        <span id="lang-btn-text">AR</span>
+                    </button>
+
+                    <button onclick="toggleTheme()" class="p-2 rounded-full border border-gold-500/40 text-gold-400 hover:bg-gold-500/10 transition text-xs">
+                        <i id="theme-icon" class="fa-solid fa-sun"></i>
+                    </button>
+
+                    <button onclick="openCartModal()" class="relative bg-gradient-to-r from-gold-600 to-amber-500 hover:from-gold-500 hover:to-amber-400 text-black font-bold px-3.5 py-2 rounded-full shadow-lg transition transform hover:scale-105 flex items-center gap-1.5 text-xs">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span id="cart-btn-label" class="hidden sm:inline">Cart</span>
+                        <span id="cart-badge" class="bg-black text-gold-400 text-[10px] rounded-full w-5 h-5 flex items-center justify-center font-bold border border-gold-400">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Search Bar -->
+            <div class="mt-2.5 md:hidden">
+                <div class="relative w-full">
+                    <input type="text" id="search-input-mobile" onkeyup="filterProductsMobile()" placeholder="Search fragrances..." 
+                           class="w-full bg-slate-900/80 border border-gold-500/30 rounded-full py-1.5 px-4 pl-9 text-xs focus:outline-none focus:border-gold-500 text-gray-200">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gold-500/70 text-xs"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-gradient-to-b from-darkbg via-slate-900 to-darkbg border-b border-gold-500/10 py-6 px-4">
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <span class="inline-block bg-gold-500/10 border border-gold-500/40 text-gold-400 text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-widest mb-2">
+                <i class="fa-solid fa-sparkles mr-1"></i> Special Limited Sale Offer
+            </span>
+            <h2 id="hero-title" class="text-xl md:text-3xl font-brand font-bold gold-gradient-text mb-2">
+                ALL FULL FRAGRANCES (≤125ml): WAS 1,199 L.E -> NOW 750 L.E!
+            </h2>
+            <div id="hero-deals" class="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto my-3">
+                <span class="bg-amber-950/80 border border-gold-500/40 text-gold-300 text-xs px-3 py-1.5 rounded-xl font-bold shadow">
+                    🔥 BUY 2 GET 1 FOR JUST 200 L.E
+                </span>
+                <span class="bg-amber-950/80 border border-gold-500/40 text-gold-300 text-xs px-3 py-1.5 rounded-xl font-bold shadow">
+                    🔥 BUY 3 GET 2 FOR JUST 400 L.E (200 L.E EACH)
+                </span>
+                <span class="bg-amber-950/80 border border-gold-500/40 text-gold-300 text-xs px-3 py-1.5 rounded-xl font-bold shadow">
+                    🔥 BUY 4 GET 3 FOR JUST 600 L.E (200 L.E EACH)
+                </span>
+            </div>
+            <p id="hero-desc" class="text-xs md:text-sm text-gray-300 max-w-2xl mx-auto">
+                Select your favorite full-size fragrances and unlock your special 200 L.E extra bottle deals directly inside your cart!
+            </p>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+
+        <!-- Atomizers & Travel Bundles Section -->
+        <section class="mb-12">
+            <div class="flex items-center justify-between mb-5 border-b border-gold-500/20 pb-2">
+                <div>
+                    <h3 id="atomizer-heading" class="text-lg md:text-2xl font-brand font-bold text-gold-400 flex items-center gap-2">
+                        <i class="fa-solid fa-vial"></i> Atomizer & Travel Bottle Bundles
+                    </h3>
+                    <p id="atomizer-sub" class="text-xs text-gray-400">Select your travel atomizer package & pick custom perfumes for each bottle!</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <!-- Bundle 1 -->
+                <div class="bg-darkcard rounded-2xl p-5 border border-gold-500/30 shadow-xl hover:border-gold-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+                    <div class="bg-gold-500 text-black text-[9px] font-black uppercase px-2.5 py-0.5 rounded-full absolute top-3 right-3 shadow">SAVE 200 L.E</div>
+                    <div>
+                        <div class="w-full h-36 rounded-xl bg-white flex items-center justify-center p-3 mb-3 shadow-inner">
+                            <img src="10ml 10b.png" alt="10ml 10b" class="h-full object-contain" onerror="smartImageFallback(this, '10ml 10b')">
+                        </div>
+                        <h4 class="font-bold text-base text-gray-100 mb-1" id="b1-title">10ml - 10  Bottles Bundle</h4>
+                        <p class="text-xs text-gray-400 mb-3" id="b1-desc">Includes 10 refillable luxury 10ml travel atomizers filled with your chosen fragrances.</p>
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="text-xl font-extrabold text-gold-400">1000 L.E</span>
+                            <span class="text-xs text-gray-500 line-through">1,200 L.E</span>
+                        </div>
+                    </div>
+                    <button onclick="openBundleModal('10ml - 10 Bottles Bundle', 10, '10ml', 1000)" class="w-full bg-gradient-to-r from-gold-600 to-amber-600 hover:from-gold-500 hover:to-amber-500 text-black font-bold py-2 rounded-xl transition text-xs shadow flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-list-check"></i> <span class="select-bundle-btn">Configure & Choose Fragrances</span>
+                    </button>
+                </div>
+
+                <!-- Bundle 2 -->
+                <div class="bg-darkcard rounded-2xl p-5 border border-gold-500/30 shadow-xl hover:border-gold-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+                    <div class="bg-gold-500 text-black text-[9px] font-black uppercase px-2.5 py-0.5 rounded-full absolute top-3 right-3 shadow">SAVE 100 L.E</div>
+                    <div>
+                        <div class="w-full h-36 rounded-xl bg-white flex items-center justify-center p-3 mb-3 shadow-inner">
+                            <img src="10ml 5pieces.png" alt="10ml 5pieces" class="h-full object-contain" onerror="smartImageFallback(this, '10ml 5pieces')">
+                        </div>
+                        <h4 class="font-bold text-base text-gray-100 mb-1" id="b2-title">10ml - 5  Bottles Bundle</h4>
+                        <p class="text-xs text-gray-400 mb-3" id="b2-desc">Includes 5 refillable 10ml pocket atomizers filled with your favorite custom perfumes.</p>
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="text-xl font-extrabold text-gold-400">600 L.E</span>
+                            <span class="text-xs text-gray-500 line-through">700 L.E</span>
+                        </div>
+                    </div>
+                    <button onclick="openBundleModal('10ml - 5 Bottles Bundle', 5, '10ml', 600)" class="w-full bg-gradient-to-r from-gold-600 to-amber-600 hover:from-gold-500 hover:to-amber-500 text-black font-bold py-2 rounded-xl transition text-xs shadow flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-list-check"></i> <span class="select-bundle-btn">Configure & Choose Fragrances</span>
+                    </button>
+                </div>
+
+                <!-- Bundle 3 -->
+                <div class="bg-darkcard rounded-2xl p-5 border border-gold-500/30 shadow-xl hover:border-gold-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+                    <div class="bg-gold-500 text-black text-[9px] font-black uppercase px-2.5 py-0.5 rounded-full absolute top-3 right-3 shadow">SAVE 100 L.E</div>
+                    <div>
+                        <div class="w-full h-36 rounded-xl bg-white flex items-center justify-center p-3 mb-3 shadow-inner">
+                            <img src="5ml 10b.png" alt="5ml 10b" class="h-full object-contain" onerror="smartImageFallback(this, '5ml 10b')">
+                        </div>
+                        <h4 class="font-bold text-base text-gray-100 mb-1" id="b3-title">5ml - 10  Bottles Bundle</h4>
+                        <p class="text-xs text-gray-400 mb-3" id="b3-desc">10 mini 5ml purse atomizers. Ideal for sampling multiple iconic perfumes.</p>
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="text-xl font-extrabold text-gold-400">575 L.E</span>
+                            <span class="text-xs text-gray-500 line-through">675 L.E</span>
+                        </div>
+                    </div>
+                    <button onclick="openBundleModal('5ml - 10 Bottles Bundle', 10, '5ml', 575)" class="w-full bg-gradient-to-r from-gold-600 to-amber-600 hover:from-gold-500 hover:to-amber-500 text-black font-bold py-2 rounded-xl transition text-xs shadow flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-list-check"></i> <span class="select-bundle-btn">Configure & Choose Fragrances</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Fragrance Catalog Section -->
+        <section>
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 border-b border-gold-500/20 pb-3 gap-3">
+                <div>
+                    <h3 id="catalog-heading" class="text-xl md:text-2xl font-brand font-bold text-gold-400">
+                        Full Fragrance Collection (≤ 125ml)
+                    </h3>
+                    <p id="catalog-sub" class="text-xs text-gray-400">Standard bottles on sale for 750 L.E! Unlock extra bottles for 200 L.E in cart.</p>
+                </div>
+                
+                <!-- Category Filter Pills -->
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <button onclick="filterCategory('all')" class="cat-pill active px-3 py-1 rounded-full border border-gold-500 bg-gold-500 text-black font-bold transition">All</button>
+                    <button onclick="filterCategory('men')" class="cat-pill px-3 py-1 rounded-full border border-gold-500/40 text-gold-400 hover:bg-gold-500/10 transition">Men</button>
+                    <button onclick="filterCategory('unisex')" class="cat-pill px-3 py-1 rounded-full border border-gold-500/40 text-gold-400 hover:bg-gold-500/10 transition">Unisex</button>
+                </div>
+            </div>
+
+            <!-- Dynamic Catalog Grid -->
+            <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                <!-- Dynamically populated via JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Atomizer Bundle Customizer Modal -->
+    <div id="bundle-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-darkcard border border-gold-500/40 w-full max-w-3xl rounded-2xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="p-4 border-b border-gold-500/20 flex justify-between items-center bg-black/40">
+                <div>
+                    <h3 id="bundle-modal-title" class="text-base font-bold text-gold-400 font-brand">Configure Bundle</h3>
+                    <p id="bundle-modal-subtitle" class="text-xs text-gray-400">Select fragrances visually for each atomizer bottle</p>
+                </div>
+                <button onclick="closeBundleModal()" class="text-gray-400 hover:text-gold-400 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="bundle-bottles-list" class="p-4 overflow-y-auto flex-1 space-y-3">
+                <!-- Dynamic visual slots with image & name injected here -->
+            </div>
+            <div class="p-4 border-t border-gold-500/20 bg-black/40 flex justify-between items-center">
+                <div>
+                    <span class="text-xs text-gray-400">Total Price:</span>
+                    <div id="bundle-modal-price" class="text-lg font-bold text-gold-400">0 L.E</div>
+                </div>
+                <button onclick="confirmAddBundleToCart()" class="bg-gradient-to-r from-gold-600 to-amber-600 hover:from-gold-500 hover:to-amber-500 text-black font-bold px-5 py-2 rounded-xl text-xs shadow transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-cart-plus"></i> <span id="add-bundle-cart-btn">Add Bundle to Cart</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fragrance Picker Sub-Modal for Bundle Slots -->
+    <div id="bundle-picker-submodal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-darkcard border border-gold-500/50 w-full max-w-2xl rounded-2xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="p-4 border-b border-gold-500/20 flex justify-between items-center bg-black/50">
+                <div>
+                    <h4 class="text-sm font-bold text-gold-400 font-brand">Choose Fragrance for Bottle <span id="picker-slot-num">1</span></h4>
+                    <p class="text-[11px] text-gray-400">Click on any perfume image to assign it to this slot</p>
+                </div>
+                <button onclick="closeBundlePickerSubmodal()" class="text-gray-400 hover:text-gold-400 text-lg"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="bundle-picker-grid" class="p-4 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                <!-- Visual perfume cards injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Cart Drawer Modal -->
+    <div id="cart-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-darkcard border border-gold-500/40 w-full max-w-2xl rounded-2xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="p-4 border-b border-gold-500/20 flex justify-between items-center bg-black/40">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-bag-shopping text-gold-400 text-lg"></i>
+                    <h3 id="cart-modal-title" class="text-base font-bold text-gold-400 font-brand">Your Shopping Bag</h3>
+                </div>
+                <button onclick="closeCartModal()" class="text-gray-400 hover:text-gold-400 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Cart Items Container -->
+            <div id="cart-items-container" class="p-4 overflow-y-auto flex-1 space-y-3">
+                <!-- Cart items populated via JS -->
+            </div>
+
+            <!-- Dynamic 200 L.E Deal Selector Box inside Cart -->
+            <div id="cart-deal-box" class="mx-4 p-3 bg-gradient-to-r from-amber-950/80 to-gold-950/80 border border-emerald-500/50 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-2 shadow-lg">
+                <div class="text-xs text-center sm:text-left">
+                    <span class="font-bold text-gold-300 block text-xs" id="deal-title">SPECIAL DEAL UNLOCKED!</span>
+                    <span class="text-gray-200 text-[11px]" id="deal-desc">Add extra fragrances for just 200 L.E!</span>
+                </div>
+                <button id="deal-add-btn" onclick="openDealSelectionModal()" class="bg-emerald-500 hover:bg-emerald-400 disabled:bg-gray-700 disabled:text-gray-400 text-black font-extrabold text-xs px-3.5 py-1.5 rounded-lg transition whitespace-nowrap shadow">
+                    <i class="fa-solid fa-plus-circle mr-1"></i> <span id="deal-btn-label">Get for 200 L.E</span>
+                </button>
+            </div>
+
+            <!-- Cart Summary Footer -->
+            <div class="p-4 border-t border-gold-500/20 bg-black/40 space-y-1.5 text-xs">
+                <div class="flex justify-between text-gray-300">
+                    <span id="subtotal-label">Subtotal:</span>
+                    <span id="cart-subtotal" class="font-semibold">0 L.E</span>
+                </div>
+                <div class="flex justify-between text-gray-300">
+                    <span id="shipping-label">Flat Delivery Fee:</span>
+                    <span class="font-semibold text-amber-400">99 L.E</span>
+                </div>
+                <div class="flex justify-between text-sm font-bold text-gold-400 border-t border-gold-500/20 pt-2">
+                    <span id="total-label">Total Amount:</span>
+                    <span id="cart-total" class="text-base">99 L.E</span>
+                </div>
+                <button onclick="openCheckoutModal()" class="w-full mt-2 bg-gradient-to-r from-gold-600 to-amber-500 hover:from-gold-500 hover:to-amber-400 text-black font-bold py-2.5 rounded-xl shadow transition flex items-center justify-center gap-2 text-xs">
+                    <i class="fa-solid fa-credit-card"></i> <span id="checkout-btn-text">Proceed to Checkout</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 200 L.E Deal Selection Modal -->
+    <div id="deal-picker-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-darkcard border border-emerald-500/40 w-full max-w-lg rounded-2xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="p-4 border-b border-emerald-500/20 flex justify-between items-center bg-black/40">
+                <div>
+                    <h3 id="deal-picker-title" class="text-base font-bold text-emerald-400 font-brand">Select Extra Fragrance (200 L.E)</h3>
+                    <p id="deal-picker-sub" class="text-xs text-gray-400">Choose any fragrance to add to your order for only 200 L.E!</p>
+                </div>
+                <button onclick="closeDealPickerModal()" class="text-gray-400 hover:text-emerald-400 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="deal-products-list" class="p-4 overflow-y-auto flex-1 space-y-2">
+                <!-- Dynamically populated deal list -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-darkcard border border-gold-500/40 w-full max-w-lg rounded-2xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="p-4 border-b border-gold-500/20 flex justify-between items-center bg-black/40">
+                <h3 id="checkout-title" class="text-base font-bold text-gold-400 font-brand">Complete Your Order</h3>
+                <button onclick="closeCheckoutModal()" class="text-gray-400 hover:text-gold-400 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)" class="p-4 overflow-y-auto space-y-3 text-xs">
+                <div>
+                    <label class="block text-gray-300 font-semibold mb-1">Full Name *</label>
+                    <input type="text" id="cust-name" required placeholder="Enter your full name" class="w-full bg-slate-900 border border-gold-500/30 rounded-xl p-2 text-gray-100 focus:outline-none focus:border-gold-500">
+                </div>
+                <div>
+                    <label class="block text-gray-300 font-semibold mb-1">Phone Number *</label>
+                    <input type="tel" id="cust-phone" required placeholder="01xxxxxxxxx" class="w-full bg-slate-900 border border-gold-500/30 rounded-xl p-2 text-gray-100 focus:outline-none focus:border-gold-500">
+                </div>
+                <div>
+                    <label class="block text-gray-300 font-semibold mb-1">City / Governorate *</label>
+                    <input type="text" id="cust-city" required placeholder="Cairo, Alexandria, Giza..." class="w-full bg-slate-900 border border-gold-500/30 rounded-xl p-2 text-gray-100 focus:outline-none focus:border-gold-500">
+                </div>
+                <div>
+                    <label class="block text-gray-300 font-semibold mb-1">Detailed Address *</label>
+                    <textarea id="cust-address" required rows="2" placeholder="Street, building, floor, apartment..." class="w-full bg-slate-900 border border-gold-500/30 rounded-xl p-2 text-gray-100 focus:outline-none focus:border-gold-500"></textarea>
+                </div>
+
+                <!-- Order Receipt Breakdown -->
+                <div class="bg-black/40 p-3 rounded-xl border border-gold-500/20 space-y-1 text-xs text-gray-300">
+                    <div class="font-bold text-gold-400 mb-1 border-b border-gold-500/20 pb-1">Order Summary:</div>
+                    <div id="checkout-items-list" class="space-y-1 mb-2 max-h-32 overflow-y-auto">
+                        <!-- Items rendered dynamically -->
+                    </div>
+                    <div class="flex justify-between pt-1 border-t border-gold-500/10"><span>Items Subtotal:</span><span id="checkout-subtotal">0 L.E</span></div>
+                    <div class="flex justify-between"><span>Flat Delivery Fee:</span><span class="text-amber-400">99 L.E</span></div>
+                    <div class="flex justify-between font-bold text-gold-400 text-sm pt-1 border-t border-gold-500/20"><span>Total Payable (Cash on Delivery):</span><span id="checkout-final">99 L.E</span></div>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-2.5 rounded-xl shadow transition text-xs flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-check-circle"></i> <span>Confirm Order (Cash on Delivery)</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-gold-500 text-black font-bold px-4 py-2.5 rounded-xl shadow-2xl hidden flex items-center gap-2 transition-all text-xs">
+        <i class="fa-solid fa-circle-check text-sm"></i>
+        <span id="toast-msg">Item added to cart!</span>
+    </div>
+
+    <footer class="bg-black border-t border-gold-500/20 py-6 px-4 text-center text-xs text-gray-400 mt-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
+            <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-full border border-gold-500 flex items-center justify-center bg-black">
+                    <i class="fa-solid fa-crown text-gold-400 text-[10px]"></i>
+                </div>
+                <span class="font-brand font-bold text-gold-400">ICONIC STORE - FINE FRAGRANCES</span>
+            </div>
+            <p id="footer-copy">&copy; 2026 ICONIC STORE. All Rights Reserved. Pure Concentration & Luxury Scents.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentLang = 'en';
+        let currentTheme = 'dark';
+        let cart = [];
+        let activeBundleConfig = null;
+        let activePickingSlotIndex = null;
+
+        // Auto Fallback mechanism for handling extensions
+        function smartImageFallback(imgElement, baseName) {
+            if (!imgElement.dataset.step) {
+                imgElement.dataset.step = "1";
+                imgElement.src = baseName + ".png.png"; // Double png fallback
+            } else if (imgElement.dataset.step === "1") {
+                imgElement.dataset.step = "2";
+                imgElement.src = baseName + ".jpg";
+            } else if (imgElement.dataset.step === "2") {
+                imgElement.dataset.step = "3";
+                imgElement.src = baseName + ".png";
+            } else {
+                imgElement.onerror = null;
+                imgElement.src = "https://via.placeholder.com/200x200/ffffff/000000?text=" + encodeURIComponent(baseName);
+            }
+        }
+
+        // Cleaned Fragrance Catalog
+        const rawProducts = [
+            { id: 1, nameEn: "Dior Sauvage Elixir", brandEn: "Dior", nameAr: "ديور سوفاج الكسير", brandAr: "ديور", gender: "men", volume: "60 ml", sizeMl: 60, image: "Dior Sauvage Elixir.png" },
+            { id: 2, nameEn: "Valentino Uomo Born in Roma Intense", brandEn: "Valentino", nameAr: "فالنتينو اومو بورن ان روما انتنس", brandAr: "فالنتينو", gender: "men", volume: "100 ml", sizeMl: 100, image: "Valentino Uomo Born in Roma Intense.png" },
+            { id: 3, nameEn: "Stronger With You Intensely", brandEn: "Emporio Armani", nameAr: "سترونجر ويز يو انتنسلي", brandAr: "امبريو ارماين", gender: "men", volume: "100 ml", sizeMl: 100, image: "Stronger With You Intensely.png" },
+            { id: 4, nameEn: "Allure Homme Sport", brandEn: "Chanel", nameAr: "الور هوم سبورت", brandAr: "شانيل", gender: "men", volume: "100 ml", sizeMl: 100, image: "Allure Homme Sport.png" },
+            { id: 5, nameEn: "Jean Paul Gaultier Le Male Elixir", brandEn: "Jean Paul Gaultier", nameAr: "جان بول لو ميل الكسير", brandAr: "جان بول غوتييه", gender: "men", volume: "125 ml", sizeMl: 125, image: "Jean Paul Gaultier Le Male Elixir.png" },
+            { id: 6, nameEn: "Invictus Paco Rabanne", brandEn: "Paco Rabanne", nameAr: "انفكتوس باكو رابان", brandAr: "باكو رابان", gender: "men", volume: "100 ml", sizeMl: 100, image: "Invictus Paco Rabanne.png" },
+            { id: 7, nameEn: "Khamrah Lattafa", brandEn: "Lattafa Perfumes", nameAr: "خمره لطافة", brandAr: "لطافة", gender: "unisex", volume: "100 ml", sizeMl: 100, image: "Khamrah Lattafa.png" },
+            { id: 8, nameEn: "Black 212 VIP Carolina Herrera", brandEn: "Carolina Herrera", nameAr: "بلاك 212 في آي بي كارولينا هيريرا", brandAr: "كارولينا هيريرا", gender: "men", volume: "100 ml", sizeMl: 100, image: "Black 212 VIP Carolina Herrera.png" },
+            { id: 9, nameEn: "Y Eau De Parfum YSL", brandEn: "Yves Saint Laurent", nameAr: "واي او دي بارفان إيف سان لوران", brandAr: "إيف سان لوران", gender: "men", volume: "100 ml", sizeMl: 100, image: "Y Eau De Parfum YSL.png" },
+            { id: 10, nameEn: "Sauvage Eau De Parfum Dior", brandEn: "Dior", nameAr: "سوفاج او دي بارفان ديور", brandAr: "ديور", gender: "men", volume: "100 ml", sizeMl: 100, image: "Sauvage Eau De Parfum Dior.png" },
+            { id: 11, nameEn: "Stronger With You Absolutely", brandEn: "Emporio Armani", nameAr: "سترونجر ويز يو ابسولوتلي", brandAr: "امبريو ارماين", gender: "men", volume: "100 ml", sizeMl: 100, image: "Stronger With You Absolutely.png" },
+            { id: 12, nameEn: "Creed Aventus", brandEn: "Creed", nameAr: "كريد افينتوس", brandAr: "كريد", gender: "men", volume: "100 ml", sizeMl: 100, image: "Creed Aventus.png" },
+            { id: 13, nameEn: "Versace Eros", brandEn: "Versace", nameAr: "فرزاتشي ايروس", brandAr: "فرزاتشي", gender: "men", volume: "100 ml", sizeMl: 100, image: "Versace Eros.png" },
+            { id: 15, nameEn: "Layton Parfums de Marly", brandEn: "Parfums de Marly", nameAr: "لايتون دي مارلي", brandAr: "دي مارلي", gender: "unisex", volume: "125 ml", sizeMl: 125, image: "Layton Parfums de Marly.png" },
+            { id: 16, nameEn: "Stronger With You Oud", brandEn: "Emporio Armani", nameAr: "سترونجر ويز يو عود", brandAr: "امبريو ارماين", gender: "men", volume: "100 ml", sizeMl: 100, image: "Stronger With You Oud.png" },
+            { id: 17, nameEn: "212 VIP Men", brandEn: "Carolina Herrera", nameAr: "تو وان تو في اي بي رجالي", brandAr: "كارولينا هيريرا", gender: "men", volume: "100 ml", sizeMl: 100, image: "212 VIP Men.png" },
+            { id: 18, nameEn: "Khamrah Dukhan", brandEn: "Lattafa Perfumes", nameAr: "خمره دخان لطافة", brandAr: "لطافة", gender: "unisex", volume: "100 ml", sizeMl: 100, image: "Khamrah Dukhan.png" },
+            { id: 19, nameEn: "212 Sexy Men", brandEn: "Carolina Herrera", nameAr: "تو وان تو سيكسى رجالي", brandAr: "كارولينا هيريرا", gender: "men", volume: "100 ml", sizeMl: 100, image: "212 Sexy Men.png" },
+            { id: 20, nameEn: "Creed Silver Mountain Water", brandEn: "Creed", nameAr: "كريد سيلفر ماونتن ووتر", brandAr: "كريد", gender: "unisex", volume: "100 ml", sizeMl: 100, image: "Creed Silver Mountain Water.14png" },
+            { id: 21, nameEn: "Blue Laverne", brandEn: "Laverne", nameAr: "بلو لافرنى", brandAr: "لافرني", gender: "unisex", volume: "100 ml", sizeMl: 100, image: "Blue Laverne.png" },
+            { id: 22, nameEn: "Imagination Louis Vuitton", brandEn: "Louis Vuitton", nameAr: "ايمجنيشن لوي فيتون", brandAr: "لوي فيتون", gender: "men", volume: "100 ml", sizeMl: 100, image: "Imagination Louis Vuitton.png" },
+            { id: 23, nameEn: "9AM Dive Afnan", brandEn: "Afnan", nameAr: "ناين ايه ام ديف افنان", brandAr: "افنان", gender: "unisex", volume: "100 ml", sizeMl: 100, image: "9AM Dive Afnan.png" },
+            { id: 24, nameEn: "Assaf Frankel Absolue", brandEn: "Assaf", nameAr: "عساف فرانكيل ابسوليو", brandAr: "عساف", gender: "men", volume: "100 ml", sizeMl: 100, image: "Assaf Frankel Absolue.png" },
+            { id: 25, nameEn: "Stronger With You Parfum", brandEn: "Emporio Armani", nameAr: "سترونجر ويز يو بارفوم", brandAr: "امبريو ارماين", gender: "men", volume: "100 ml", sizeMl: 100, image: "Stronger With You Parfum.png" },
+            { id: 26, nameEn: "Ultra Male JPG", brandEn: "Jean Paul Gaultier", nameAr: " الترا ميل جان بول", brandAr: "جان بول غوتييه", gender: "men", volume: "125 ml", sizeMl: 125, image: "Ultra Male JPG.png" },
+            { id: 27, nameEn: "Tom Ford Ombre Leather", brandEn: "Tom Ford", nameAr: "توم فورد امبر ليذر", brandAr: "توم فورد", gender: "unisex", volume: "100 ml", sizeMl: 100, image: "Tom Ford Ombre Leather.png" }
+        ];
+
+        // Ensure all products are strictly <= 125ml and set to 750 L.E sale price
+        const products = rawProducts
+            .filter(p => p.sizeMl <= 125)
+            .map(p => ({
+                ...p,
+                originalPrice: 1199,
+                salePrice: 750
+            }));
+
+        const translations = {
+            en: {
+                banner: "Flat Delivery Fee: 99 L.E Everywhere in Egypt | التوصيل بـ 99 ج.م فقط لكافة المحافظات",
+                heroTitle: "ALL FULL FRAGRANCES (≤125ml): WAS 1,199 L.E -> NOW 750 L.E!",
+                heroDesc: "Select your favorite full-size fragrances and unlock your special 200 L.E extra bottle deals directly inside your cart!",
+                atomizerHeading: "Atomizer & Travel Bottle Bundles",
+                atomizerSub: "Select your travel atomizer package & pick custom perfumes for each bottle!",
+                catalogHeading: "Full Fragrance Collection (≤ 125ml)",
+                catalogSub: "Standard bottles on sale for 750 L.E! Unlock extra bottles for 200 L.E in cart.",
+                b1Title: "10ml - 10 Empty Bottles Bundle",
+                b1Desc: "Includes 10 refillable luxury 10ml travel atomizers filled with your chosen fragrances.",
+                b2Title: "10ml - 5 Empty Bottles Bundle",
+                b2Desc: "Includes 5 refillable 10ml pocket atomizers filled with your favorite custom perfumes.",
+                b3Title: "5ml - 10 Empty Bottles Bundle",
+                b3Desc: "10 mini 5ml purse atomizers. Ideal for sampling multiple iconic perfumes.",
+                selectBundle: "Configure & Choose Fragrances",
+                addToCart: "Add To Cart",
+                cartTitle: "Your Shopping Bag",
+                subtotal: "Subtotal:",
+                shipping: "Flat Delivery Fee:",
+                total: "Total Amount:",
+                checkout: "Proceed to Checkout",
+                searchPlaceholder: "Search fragrances...",
+                emptyCart: "Your cart is currently empty.",
+                dealLimitReached: "Deal Limit Reached",
+                unlockDealHint: "Add 2 full fragrances to unlock 200 L.E deal",
+                getDeal: "Add for 200 L.E"
+            },
+            ar: {
+                banner: "التوصيل بـ 99 ج.م فقط لكافة المحافظات | Flat Delivery Fee: 99 L.E Everywhere in Egypt",
+                heroTitle: "جميع العطور الكاملة (125مل أو أقل): بدلاً من 1,199 ج.م -> الآن 750 ج.م!",
+                heroDesc: "اختر عطرك المفضل واحصل على زجاجات إضافية بـ 200 ج.م فقط مباشرة داخل عربة التسوق!",
+                atomizerHeading: "باقات الزجاجات والرشاشات الفارغة / العينات",
+                atomizerSub: "اختر باقة العينات الخاصة بك وحدد العطور لكل زجاجة!",
+                catalogHeading: "تشكيلة العطور الكاملة (125 مل أو أقل)",
+                catalogSub: "جميع العطور في العرض بـ 750 ج.م! يمكنك إضافة زجاجات إضافية بـ 200 ج.م فقط في العربة.",
+                b1Title: "باقة 10 زجاجات عينات سعة 10 مل",
+                b1Desc: "تتضمن 10 زجاجات رشاش فاخرة سعة 10 مل مع اختيار عطر مختلف لكل زجاجة.",
+                b2Title: "باقة 5 زجاجات عينات سعة 10 مل",
+                b2Desc: "تتضمن 5 زجاجات رشاش جيب سعة 10 مل مع اختيار عطورك المفضلة.",
+                b3Title: "باقة 10 زجاجات عينات سعة 5 مل",
+                b3Desc: "10 زجاجات صغيرة سعة 5 مل مثالية لتجربة تشكيلة واسعة من العطور العالمية.",
+                selectBundle: "تحديد العطور للباقة",
+                addToCart: "إضافة إلى العربة",
+                cartTitle: "عربة التسوق",
+                subtotal: "المجموع الفرعي:",
+                shipping: "التوصيل لكافة المحافظات:",
+                total: "المجموع الإجمالي:",
+                checkout: "إتمام الطلب الآن",
+                searchPlaceholder: "ابحث عن عطر...",
+                emptyCart: "عربة التسوق فارغة حالياً.",
+                dealLimitReached: "تم الوصول للحد الأقصى للعرض",
+                unlockDealHint: "أضف عطرين كاملين لتفعيل عرض الـ 200 ج.م",
+                getDeal: "إضافة بـ 200 ج.م"
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderProducts(products);
+            updateCartCount();
+        });
+
+        function renderProducts(list) {
+            const grid = document.getElementById("catalog-grid");
+            grid.innerHTML = "";
+
+            list.forEach(p => {
+                const name = currentLang === 'ar' ? p.nameAr : p.nameEn;
+                const brand = currentLang === 'ar' ? p.brandAr : p.brandEn;
+
+                const card = document.createElement("div");
+                card.className = "bg-darkcard rounded-2xl p-4 border border-gold-500/20 shadow-xl hover:border-gold-500/60 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden";
+                
+                const baseNameNoExt = p.image.replace('.png', '');
+
+                card.innerHTML = `
+                    <div class="absolute top-2 left-2 bg-emerald-500 text-black text-[9px] font-black uppercase px-2 py-0.5 rounded-full z-10 shadow">
+                        -37% OFF
+                    </div>
+
+                    <div class="h-44 py-2 my-2 flex items-center justify-center bg-white rounded-xl border border-gold-500/20 group-hover:scale-105 transition-transform duration-300 overflow-hidden shadow-inner">
+                        <img src="${p.image}" alt="${name}" class="h-full object-contain p-1" onerror="smartImageFallback(this, '${baseNameNoExt}')">
+                    </div>
+
+                    <div>
+                        <div class="text-[10px] text-gold-400 font-semibold tracking-wider uppercase mb-0.5">${brand}</div>
+                        <h4 class="font-bold text-xs md:text-sm text-gray-100 line-clamp-2 h-9 mb-1" title="${name}">${name}</h4>
+                        <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                            <span class="bg-gold-500/10 text-gold-300 border border-gold-500/30 px-1.5 py-0.5 rounded text-[9px] font-semibold">${p.volume}</span>
+                            <div class="text-gold-400 text-[10px]">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="flex items-baseline gap-1.5 mb-3">
+                            <span class="text-lg font-black text-gold-400">${p.salePrice} L.E</span>
+                            <span class="text-xs text-gray-500 line-through">${p.originalPrice} L.E</span>
+                        </div>
+                    </div>
+
+                    <button onclick="addToCart(${p.id})" class="w-full bg-gradient-to-r from-gold-600 to-amber-600 hover:from-gold-500 hover:to-amber-500 text-black font-bold py-2 rounded-xl transition shadow flex items-center justify-center gap-1.5 text-xs">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <span>${translations[currentLang].addToCart}</span>
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterProducts() {
+            const query = document.getElementById("search-input").value.toLowerCase();
+            const filtered = products.filter(p => 
+                p.nameEn.toLowerCase().includes(query) || 
+                p.nameAr.toLowerCase().includes(query) ||
+                p.brandEn.toLowerCase().includes(query) ||
+                p.brandAr.toLowerCase().includes(query)
+            );
+            renderProducts(filtered);
+        }
+
+        function filterProductsMobile() {
+            const query = document.getElementById("search-input-mobile").value.toLowerCase();
+            const filtered = products.filter(p => 
+                p.nameEn.toLowerCase().includes(query) || 
+                p.nameAr.toLowerCase().includes(query) ||
+                p.brandEn.toLowerCase().includes(query)
+            );
+            renderProducts(filtered);
+        }
+
+        function filterCategory(cat) {
+            document.querySelectorAll(".cat-pill").forEach(el => {
+                el.classList.remove("bg-gold-500", "text-black", "font-bold");
+                el.classList.add("text-gold-400");
+            });
+            event.target.classList.add("bg-gold-500", "text-black", "font-bold");
+            event.target.classList.remove("text-gold-400");
+
+            if (cat === 'all') {
+                renderProducts(products);
+            } else {
+                renderProducts(products.filter(p => p.gender === cat || p.gender === 'unisex'));
+            }
+        }
+
+        function openBundleModal(bundleTitle, count, capacity, price) {
+            activeBundleConfig = {
+                title: bundleTitle,
+                count: count,
+                capacity: capacity,
+                price: price,
+                selections: new Array(count).fill(products[0].id)
+            };
+
+            document.getElementById("bundle-modal-title").innerText = bundleTitle;
+            document.getElementById("bundle-modal-price").innerText = price + " L.E";
+
+            renderBundleSlots();
+            document.getElementById("bundle-modal").classList.remove("hidden");
+        }
+
+        function renderBundleSlots() {
+            const container = document.getElementById("bundle-bottles-list");
+            container.innerHTML = "";
+
+            for (let i = 0; i < activeBundleConfig.count; i++) {
+                const selectedProdId = activeBundleConfig.selections[i];
+                const selectedProd = products.find(p => p.id === selectedProdId) || products[0];
+                const name = currentLang === 'ar' ? selectedProd.nameAr : selectedProd.nameEn;
+                const baseNameNoExt = selectedProd.image.replace('.png', '');
+
+                const row = document.createElement("div");
+                row.className = "flex items-center justify-between bg-black/50 p-2.5 rounded-xl border border-gold-500/20 gap-3 hover:border-gold-500/50 transition";
+                
+                row.innerHTML = `
+                    <div class="flex items-center gap-3 flex-1">
+                        <span class="text-xs font-bold text-gold-400 bg-gold-500/10 px-2 py-1 rounded-lg border border-gold-500/30">#${i + 1}</span>
+                        <div class="w-12 h-12 rounded-lg bg-white p-0.5 border border-gold-500/30 flex items-center justify-center shrink-0 overflow-hidden">
+                            <img src="${selectedProd.image}" alt="${name}" class="h-full object-contain" onerror="smartImageFallback(this, '${baseNameNoExt}')">
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-gray-400 block uppercase font-medium">Bottle ${i + 1} (${activeBundleConfig.capacity})</span>
+                            <h5 class="text-xs font-bold text-gray-100">${name}</h5>
+                        </div>
+                    </div>
+                    <button onclick="openBundlePickerSubmodal(${i})" class="bg-gradient-to-r from-gold-600 to-amber-600 hover:from-gold-500 hover:to-amber-500 text-black font-bold text-xs px-3 py-1.5 rounded-lg shadow transition flex items-center gap-1">
+                        <i class="fa-solid fa-arrows-rotate text-[10px]"></i> Change
+                    </button>
+                `;
+                container.appendChild(row);
+            }
+        }
+
+        function openBundlePickerSubmodal(slotIndex) {
+            activePickingSlotIndex = slotIndex;
+            document.getElementById("picker-slot-num").innerText = slotIndex + 1;
+
+            const grid = document.getElementById("bundle-picker-grid");
+            grid.innerHTML = "";
+
+            products.forEach(p => {
+                const name = currentLang === 'ar' ? p.nameAr : p.nameEn;
+                const baseNameNoExt = p.image.replace('.png', '');
+
+                const card = document.createElement("div");
+                card.className = "bg-slate-900 border border-gold-500/20 rounded-xl p-2 flex flex-col items-center justify-between cursor-pointer hover:border-gold-400 transition hover:scale-105 text-center group";
+                card.onclick = () => selectFragranceForSlot(p.id);
+
+                card.innerHTML = `
+                    <div class="w-full h-20 bg-white rounded-lg p-1 mb-1.5 flex items-center justify-center border border-gold-500/10 overflow-hidden">
+                        <img src="${p.image}" alt="${name}" class="h-full object-contain" onerror="smartImageFallback(this, '${baseNameNoExt}')">
+                    </div>
+                    <h6 class="text-[11px] font-bold text-gray-200 line-clamp-2 h-7 leading-tight group-hover:text-gold-300">${name}</h6>
+                    <span class="text-[9px] text-gold-400 mt-1 font-semibold">${p.volume}</span>
+                `;
+                grid.appendChild(card);
+            });
+
+            document.getElementById("bundle-picker-submodal").classList.remove("hidden");
+        }
+
+        function selectFragranceForSlot(productId) {
+            if (activePickingSlotIndex !== null && activeBundleConfig) {
+                activeBundleConfig.selections[activePickingSlotIndex] = productId;
+                renderBundleSlots();
+            }
+            closeBundlePickerSubmodal();
+        }
+
+        function closeBundlePickerSubmodal() {
+            document.getElementById("bundle-picker-submodal").classList.add("hidden");
+            activePickingSlotIndex = null;
+        }
+
+        function closeBundleModal() {
+            document.getElementById("bundle-modal").classList.add("hidden");
+        }
+
+        function confirmAddBundleToCart() {
+            if (!activeBundleConfig) return;
+
+            const selectedItems = activeBundleConfig.selections.map(id => {
+                const p = products.find(prod => prod.id === id) || products[0];
+                return {
+                    name: currentLang === 'ar' ? p.nameAr : p.nameEn,
+                    image: p.image
+                };
+            });
+
+            cart.push({
+                type: "bundle",
+                title: activeBundleConfig.title,
+                price: activeBundleConfig.price,
+                itemsList: selectedItems,
+                qty: 1
+            });
+
+            closeBundleModal();
+            updateCartCount();
+            showToast("Bundle added to cart!");
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existing = cart.find(item => item.type === 'product' && item.id === productId && !item.isDeal);
+
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({
+                    type: 'product',
+                    id: product.id,
+                    title: currentLang === 'ar' ? product.nameAr : product.nameEn,
+                    price: product.salePrice,
+                    volume: product.volume,
+                    image: product.image,
+                    qty: 1,
+                    isDeal: false
+                });
+            }
+
+            updateCartCount();
+            showToast(`${currentLang === 'ar' ? product.nameAr : product.nameEn} added!`);
+        }
+
+        function addDealProductToCart(productId) {
+            const { fullBottlesCount, currentDealCount, allowedDealLimit } = enforceDealLimits();
+
+            if (currentDealCount >= allowedDealLimit) {
+                showToast("Deal Limit Reached! Cannot add more deal bottles.");
+                return;
+            }
+
+            const product = products.find(p => p.id === productId);
+            cart.push({
+                type: 'product',
+                id: product.id,
+                title: (currentLang === 'ar' ? product.nameAr : product.nameEn) + " (200 L.E DEAL)",
+                price: 200,
+                volume: product.volume,
+                image: product.image,
+                qty: 1,
+                isDeal: true
+            });
+
+            closeDealPickerModal();
+            renderCartItems();
+            updateCartCount();
+            showToast("200 L.E deal perfume added!");
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById("cart-badge").innerText = count;
+        }
+
+        function enforceDealLimits() {
+            let fullBottlesCount = 0;
+            let currentDealCount = 0;
+
+            cart.forEach(item => {
+                if (item.type === 'product') {
+                    if (item.isDeal) {
+                        currentDealCount += item.qty;
+                    } else {
+                        fullBottlesCount += item.qty;
+                    }
+                }
+            });
+
+            let allowedDealLimit = 0;
+            if (fullBottlesCount === 2) allowedDealLimit = 1;
+            else if (fullBottlesCount === 3) allowedDealLimit = 2;
+            else if (fullBottlesCount >= 4) allowedDealLimit = 3;
+
+            if (currentDealCount > allowedDealLimit) {
+                let excessToRemove = currentDealCount - allowedDealLimit;
+                for (let i = cart.length - 1; i >= 0; i--) {
+                    if (cart[i].type === 'product' && cart[i].isDeal) {
+                        if (cart[i].qty <= excessToRemove) {
+                            excessToRemove -= cart[i].qty;
+                            cart.splice(i, 1);
+                        } else {
+                            cart[i].qty -= excessToRemove;
+                            excessToRemove = 0;
+                        }
+                        if (excessToRemove <= 0) break;
+                    }
+                }
+                currentDealCount = allowedDealLimit;
+            }
+
+            return { fullBottlesCount, currentDealCount, allowedDealLimit };
+        }
+
+        function renderCartItems() {
+            const { fullBottlesCount, currentDealCount, allowedDealLimit } = enforceDealLimits();
+
+            const container = document.getElementById("cart-items-container");
+            container.innerHTML = "";
+
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-center text-gray-400 py-6 text-xs">${translations[currentLang].emptyCart}</p>`;
+                document.getElementById("cart-subtotal").innerText = "0 L.E";
+                document.getElementById("cart-total").innerText = "99 L.E";
+                document.getElementById("cart-deal-box").classList.add("hidden");
+                return;
+            }
+
+            let subtotal = 0;
+
+            cart.forEach((item, idx) => {
+                subtotal += item.price * item.qty;
+
+                const itemRow = document.createElement("div");
+                itemRow.className = "flex flex-col bg-black/40 p-3 rounded-xl border border-gold-500/20 gap-2";
+
+                if (item.type === 'product') {
+                    const baseNameNoExt = (item.image || '').replace('.png', '');
+                    itemRow.innerHTML = `
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="flex items-center gap-2.5 flex-1 pr-2">
+                                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-0.5 border border-gold-500/20 overflow-hidden">
+                                    <img src="${item.image}" alt="${item.title}" class="h-full object-contain" onerror="smartImageFallback(this, '${baseNameNoExt}')">
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-xs text-gold-300">${item.title}</h5>
+                                    <p class="text-[10px] text-gray-400 line-clamp-1">${item.volume || ''}</p>
+                                    <span class="text-xs font-bold text-emerald-400">${item.price} L.E ${item.isDeal ? '<span class="text-[9px] bg-emerald-600/30 px-1 py-0.5 rounded text-emerald-300">200 L.E Offer</span>' : ''}</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <div class="flex items-center bg-slate-900 border border-gold-500/30 rounded-lg">
+                                    <button onclick="changeQty(${idx}, -1)" class="px-2 py-0.5 text-xs text-gold-400 hover:bg-gold-500/20 rounded-l-lg">-</button>
+                                    <span class="px-2 text-xs font-bold">${item.qty}</span>
+                                    <button onclick="changeQty(${idx}, 1)" class="px-2 py-0.5 text-xs text-gold-400 hover:bg-gold-500/20 rounded-r-lg">+</button>
+                                </div>
+                                <button onclick="removeItem(${idx})" class="text-red-400 hover:text-red-300 p-1 text-xs"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    let itemsHtml = `<div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 mt-2 bg-slate-900/80 p-2 rounded-xl border border-gold-500/10">`;
+                    item.itemsList.forEach((sub, subIdx) => {
+                        const subBaseName = sub.image.replace('.png', '');
+                        itemsHtml += `
+                            <div class="flex items-center gap-1.5 bg-black/40 p-1 rounded-lg border border-gold-500/10">
+                                <div class="w-6 h-6 rounded bg-white p-0.5 shrink-0 overflow-hidden">
+                                    <img src="${sub.image}" alt="${sub.name}" class="h-full w-full object-contain" onerror="smartImageFallback(this, '${subBaseName}')">
+                                </div>
+                                <span class="text-[9px] text-gray-200 line-clamp-1 font-medium">${sub.name}</span>
+                            </div>
+                        `;
+                    });
+                    itemsHtml += `</div>`;
+
+                    itemRow.innerHTML = `
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-boxes-packing text-gold-400 text-lg"></i>
+                                <div>
+                                    <h5 class="font-bold text-xs text-gold-300">${item.title}</h5>
+                                    <span class="text-xs font-bold text-emerald-400">${item.price} L.E</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <div class="flex items-center bg-slate-900 border border-gold-500/30 rounded-lg">
+                                    <button onclick="changeQty(${idx}, -1)" class="px-2 py-0.5 text-xs text-gold-400 hover:bg-gold-500/20 rounded-l-lg">-</button>
+                                    <span class="px-2 text-xs font-bold">${item.qty}</span>
+                                    <button onclick="changeQty(${idx}, 1)" class="px-2 py-0.5 text-xs text-gold-400 hover:bg-gold-500/20 rounded-r-lg">+</button>
+                                </div>
+                                <button onclick="removeItem(${idx})" class="text-red-400 hover:text-red-300 p-1 text-xs"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                        ${itemsHtml}
+                    `;
+                }
+
+                container.appendChild(itemRow);
+            });
+
+            const shipping = 99;
+            const grandTotal = subtotal + shipping;
+
+            document.getElementById("cart-subtotal").innerText = subtotal + " L.E";
+            document.getElementById("cart-total").innerText = grandTotal + " L.E";
+
+            const dealBox = document.getElementById("cart-deal-box");
+            const dealTitle = document.getElementById("deal-title");
+            const dealDesc = document.getElementById("deal-desc");
+            const dealAddBtn = document.getElementById("deal-add-btn");
+            const dealBtnLabel = document.getElementById("deal-btn-label");
+
+            dealBox.classList.remove("hidden");
+
+            if (fullBottlesCount < 2) {
+                dealTitle.innerText = "BUY 2 FULL FRAGRANCES TO UNLOCK 200 L.E DEAL";
+                dealDesc.innerText = `Add ${2 - fullBottlesCount} more full fragrance(s) to unlock 1 extra bottle for 200 L.E!`;
+                dealAddBtn.disabled = true;
+                dealBtnLabel.innerText = translations[currentLang].unlockDealHint;
+            } else if (fullBottlesCount === 2) {
+                dealTitle.innerText = "BUY 2 GET 1 DEAL UNLOCKED!";
+                dealDesc.innerText = `You unlocked 1 extra bottle for 200 L.E! (${currentDealCount}/1 claimed)`;
+                if (currentDealCount >= 1) {
+                    dealAddBtn.disabled = true;
+                    dealBtnLabel.innerText = translations[currentLang].dealLimitReached;
+                } else {
+                    dealAddBtn.disabled = false;
+                    dealBtnLabel.innerText = translations[currentLang].getDeal;
+                }
+            } else if (fullBottlesCount === 3) {
+                dealTitle.innerText = "BUY 3 GET 2 DEAL UNLOCKED!";
+                dealDesc.innerText = `You unlocked 2 extra bottles for 200 L.E each! (${currentDealCount}/2 claimed)`;
+                if (currentDealCount >= 2) {
+                    dealAddBtn.disabled = true;
+                    dealBtnLabel.innerText = translations[currentLang].dealLimitReached;
+                } else {
+                    dealAddBtn.disabled = false;
+                    dealBtnLabel.innerText = translations[currentLang].getDeal;
+                }
+            } else {
+                dealTitle.innerText = "BUY 4 GET 3 MEGA DEAL UNLOCKED!";
+                dealDesc.innerText = `You unlocked 3 extra bottles for 200 L.E each! (${currentDealCount}/3 claimed)`;
+                if (currentDealCount >= 3) {
+                    dealAddBtn.disabled = true;
+                    dealBtnLabel.innerText = translations[currentLang].dealLimitReached;
+                } else {
+                    dealAddBtn.disabled = false;
+                    dealBtnLabel.innerText = translations[currentLang].getDeal;
+                }
+            }
+        }
+
+        function changeQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            renderCartItems();
+            updateCartCount();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            renderCartItems();
+            updateCartCount();
+        }
+
+        function openDealSelectionModal() {
+            const listContainer = document.getElementById("deal-products-list");
+            listContainer.innerHTML = "";
+
+            products.forEach(p => {
+                const name = currentLang === 'ar' ? p.nameAr : p.nameEn;
+                const baseNameNoExt = p.image.replace('.png', '');
+                const row = document.createElement("div");
+                row.className = "flex items-center justify-between bg-black/40 p-2.5 rounded-xl border border-emerald-500/20 hover:border-emerald-400 transition cursor-pointer";
+                row.onclick = () => addDealProductToCart(p.id);
+
+                row.innerHTML = `
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-lg bg-white border border-emerald-500/30 flex items-center justify-center p-0.5 overflow-hidden">
+                            <img src="${p.image}" alt="${name}" class="h-full object-contain" onerror="smartImageFallback(this, '${baseNameNoExt}')">
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xs text-gray-100">${name}</h5>
+                            <span class="text-[10px] text-gray-400">${p.volume}</span>
+                        </div>
+                    </div>
+                    <button class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs px-2.5 py-1 rounded-lg">Select (200 L.E)</button>
+                `;
+                listContainer.appendChild(row);
+            });
+
+            document.getElementById("deal-picker-modal").classList.remove("hidden");
+        }
+
+        function closeDealPickerModal() {
+            document.getElementById("deal-picker-modal").classList.add("hidden");
+        }
+
+        function openCartModal() {
+            renderCartItems();
+            document.getElementById("cart-modal").classList.remove("hidden");
+        }
+
+        function closeCartModal() {
+            document.getElementById("cart-modal").classList.add("hidden");
+        }
+
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                showToast("Your cart is empty!");
+                return;
+            }
+            closeCartModal();
+
+            const itemsList = document.getElementById("checkout-items-list");
+            itemsList.innerHTML = "";
+
+            let subtotal = 0;
+            cart.forEach(item => {
+                subtotal += item.price * item.qty;
+                const div = document.createElement("div");
+                div.className = "flex justify-between items-center text-[11px] text-gray-200 border-b border-gray-800 pb-1";
+                div.innerHTML = `
+                    <span>${item.qty}x ${item.title}</span>
+                    <span class="font-bold text-gold-400">${item.price * item.qty} L.E</span>
+                `;
+                itemsList.appendChild(div);
+            });
+
+            document.getElementById("checkout-subtotal").innerText = subtotal + " L.E";
+            document.getElementById("checkout-final").innerText = (subtotal + 99) + " L.E";
+
+            document.getElementById("checkout-modal").classList.remove("hidden");
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById("checkout-modal").classList.add("hidden");
+        }
+
+
+        // ====== إعدادات بوت تليجرام ======
+        const TELEGRAM_TOKEN = "8856753521:AAEgBQvIDBwOQZOmY8MKLfyadx0iMIj09uA";
+        const TELEGRAM_CHAT_ID = "-1003941454147";
+
+        async function sendOrderToTelegram(order) {
+            let itemsText = "";
+            order.items.forEach(item => {
+                itemsText += `▪ ${item.qty}x ${item.title} — ${item.price * item.qty} L.E\n`;
+                if (item.details && item.details.length > 0) {
+                    item.details.forEach((d, i) => {
+                        itemsText += `   └ زجاجة ${i + 1}: ${d}\n`;
+                    });
+                }
+            });
+
+            const text = `
+🛍️ *طلب جديد من ICONIC STORE!*
+━━━━━━━━━━━━━━
+👤 *الاسم:* ${order.name}
+📱 *الموبايل:* ${order.phone}
+🏙️ *المحافظة:* ${order.city}
+📍 *العنوان:* ${order.address}
+━━━━━━━━━━━━━━
+📦 *تفاصيل الطلب:*
+${itemsText}━━━━━━━━━━━━━━
+💵 المجموع الفرعي: ${order.subtotal} L.E
+🚚 التوصيل: 99 L.E
+💰 *الإجمالي (كاش عند الاستلام):* ${order.total} L.E
+`.trim();
+
+            const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: text,
+                    parse_mode: "Markdown"
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error("Telegram send failed");
+            }
+            return response.json();
+        }
+
+        async function handleCheckoutSubmit(e) {
+            e.preventDefault();
+
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>جاري إرسال الطلب...</span>';
+
+            const name = document.getElementById("cust-name").value.trim();
+            const phone = document.getElementById("cust-phone").value.trim();
+            const city = document.getElementById("cust-city").value.trim();
+            const address = document.getElementById("cust-address").value.trim();
+
+            let subtotal = 0;
+            const orderItems = cart.map(item => {
+                subtotal += item.price * item.qty;
+                const orderItem = { qty: item.qty, title: item.title, price: item.price, details: [] };
+                if (item.type === 'bundle' && item.itemsList && item.itemsList.length > 0) {
+                    orderItem.details = item.itemsList.map(sub => sub.name);
+                }
+                return orderItem;
+            });
+
+            const order = {
+                name: name,
+                phone: phone,
+                city: city,
+                address: address,
+                items: orderItems,
+                subtotal: subtotal,
+                total: subtotal + 99
+            };
+
+            let telegramSent = false;
+            try {
+                await sendOrderToTelegram(order);
+                telegramSent = true;
+            } catch (err) {
+                console.error("فشل إرسال الطلب لتليجرام:", err);
+            }
+
+            cart = [];
+            updateCartCount();
+            closeCheckoutModal();
+            e.target.reset();
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fa-solid fa-check-circle"></i> <span>Confirm Order (Cash on Delivery)</span>';
+
+            if (telegramSent) {
+                showToast("✅ تم إرسال طلبك بنجاح! هنتواصل معاك قريب.");
+            } else {
+                alert("الطلب اتسجل عندك بس حصل مشكلة في الإرسال للجروب. اتصل بالعميل على: " + phone);
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = currentLang;
+
+            document.getElementById("lang-btn-text").innerText = currentLang === 'en' ? 'AR' : 'EN';
+            
+            document.getElementById("banner-text").innerText = translations[currentLang].banner;
+            document.getElementById("hero-title").innerText = translations[currentLang].heroTitle;
+            document.getElementById("hero-desc").innerText = translations[currentLang].heroDesc;
+            document.getElementById("atomizer-heading").innerText = translations[currentLang].atomizerHeading;
+            document.getElementById("atomizer-sub").innerText = translations[currentLang].atomizerSub;
+            document.getElementById("catalog-heading").innerText = translations[currentLang].catalogHeading;
+            document.getElementById("catalog-sub").innerText = translations[currentLang].catalogSub;
+            document.getElementById("b1-title").innerText = translations[currentLang].b1Title;
+            document.getElementById("b1-desc").innerText = translations[currentLang].b1Desc;
+            document.getElementById("b2-title").innerText = translations[currentLang].b2Title;
+            document.getElementById("b2-desc").innerText = translations[currentLang].b2Desc;
+            document.getElementById("b3-title").innerText = translations[currentLang].b3Title;
+            document.getElementById("b3-desc").innerText = translations[currentLang].b3Desc;
+            
+            document.querySelectorAll(".select-bundle-btn").forEach(el => el.innerText = translations[currentLang].selectBundle);
+            document.getElementById("search-input").placeholder = translations[currentLang].searchPlaceholder;
+
+            renderProducts(products);
+        }
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const icon = document.getElementById("theme-icon");
+            if (currentTheme === 'light') {
+                document.documentElement.classList.remove("dark");
+                document.documentElement.classList.add("light");
+                document.body.classList.replace("bg-darkbg", "bg-slate-50");
+                document.body.classList.replace("text-gray-100", "text-slate-900");
+                icon.classList.replace("fa-sun", "fa-moon");
+            } else {
+                document.documentElement.classList.remove("light");
+                document.documentElement.classList.add("dark");
+                document.body.classList.replace("bg-slate-50", "bg-darkbg");
+                document.body.classList.replace("text-slate-900", "text-gray-100");
+                icon.classList.replace("fa-moon", "fa-sun");
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            document.getElementById("toast-msg").innerText = msg;
+            toast.classList.remove("hidden");
+            setTimeout(() => {
+                toast.classList.add("hidden");
+            }, 3000);
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
